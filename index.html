@@ -67,6 +67,26 @@
   .grid2{display:grid; grid-template-columns:1fr 1fr; gap:26px}
   @media(max-width:640px){.grid2{grid-template-columns:1fr; gap:8px}}
   .lead{color:#c7d2e0}
+  .exp h3{margin:0 0 4px; font-size:1.1rem; font-weight:700}
+  .exp .venue{margin:0 0 12px}
+  .contact-form{display:flex; flex-direction:column; gap:12px; max-width:540px; margin-top:6px}
+  .row2{display:flex; gap:12px}
+  .row2>*{flex:1}
+  @media(max-width:520px){.row2{flex-direction:column}}
+  .contact-form input,.contact-form textarea{
+    background:var(--card); border:1px solid var(--line); color:var(--fg);
+    border-radius:10px; padding:11px 13px; font:inherit; font-size:.95rem; width:100%;
+  }
+  .contact-form input::placeholder,.contact-form textarea::placeholder{color:#67748a}
+  .contact-form input:focus,.contact-form textarea:focus{outline:none; border-color:var(--accent)}
+  .contact-form textarea{resize:vertical}
+  .contact-form button{
+    align-self:flex-start; background:linear-gradient(90deg,var(--accent),var(--accent2));
+    color:#0b0f17; border:none; border-radius:999px; padding:11px 24px; font-weight:700;
+    font-size:.95rem; cursor:pointer; transition:.18s;
+  }
+  .contact-form button:hover{transform:translateY(-1px); box-shadow:0 8px 24px #6ea8fe44}
+  .note{color:var(--muted); font-size:.82rem; margin-top:10px}
   footer{padding:40px 0 60px; text-align:center; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line)}
   .dot{opacity:.5; margin:0 8px}
 </style>
@@ -114,6 +134,24 @@
     </article>
   </section>
 
+  <section id="experience">
+    <h2>Experience</h2>
+    <article class="pub exp">
+      <h3>Data Engineer</h3>
+      <p class="venue">[X]+ years &middot; data platforms for analytics &amp; ML</p>
+      <p class="abstract">I design and operate production data pipelines and warehouses that power
+        analytics and machine learning: batch and streaming ETL/ELT, workflow orchestration, dimensional
+        data modeling, and reliability at scale. My focus is turning messy, multi-source data into
+        trustworthy, well-tested datasets that teams can build on — with monitoring, lineage, and cost
+        in mind.</p>
+      <div>
+        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Apache Airflow</span>
+        <span class="tag">Snowflake</span><span class="tag">AWS</span><span class="tag">dbt</span>
+        <span class="tag">Spark</span><span class="tag">CI/CD</span>
+      </div>
+    </article>
+  </section>
+
   <section class="grid2">
     <div>
       <h2>Research Interests</h2>
@@ -135,6 +173,23 @@
       questions about neural networks — most recently, what genuinely carries over when you shrink a
       pretrained transformer, and how to recover a small model cheaply without training it from zero.
       I care about honest experiments, reproducible artifacts, and results that hold up to scrutiny.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="lead">Research collaboration, a question about the work, or an opportunity? Send a note
+      and I'll get back to you.</p>
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="row2">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+      </div>
+      <input type="tel" name="phone" placeholder="Phone (optional)" />
+      <textarea name="reason" rows="4" placeholder="Reason for reaching out" required></textarea>
+      <input type="hidden" name="_subject" value="New contact from your portfolio site" />
+      <button type="submit">Send request</button>
+    </form>
+    <p class="note">Submissions are delivered straight to my inbox.</p>
   </section>
 
   <footer>
