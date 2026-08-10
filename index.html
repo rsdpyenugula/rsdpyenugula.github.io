@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ravi Satya Durga Prasad Yenugula — Independent Researcher</title>
-<meta name="description" content="Ravi Satya Durga Prasad Yenugula — independent machine-learning researcher. Model compression, size conversion, and efficient pretraining of transformers." />
+<meta name="description" content="Ravi Satya Durga Prasad Yenugula — independent machine-learning researcher and data engineer. Model compression, size conversion, efficient pretraining; Snowflake/Databricks data platforms." />
 <meta property="og:title" content="Ravi Satya Durga Prasad Yenugula — Independent Researcher" />
 <meta property="og:description" content="Machine-learning research: what transfers between transformer sizes, model compression, efficient pretraining." />
 <meta property="og:image" content="assets/profile.jpg" />
@@ -15,189 +15,241 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#0b0f17; --bg2:#111827; --card:#131a26; --line:#1f2937;
+    --bg:#0b0f17; --card:#131a26; --card2:#0f1622; --line:#1f2937;
     --fg:#e6edf6; --muted:#9aa7b8; --accent:#6ea8fe; --accent2:#8b7bff;
-    --chip:#1b2534; --maxw:840px;
+    --chip:#1b2534; --maxw:1120px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    margin:0; background:radial-gradient(1200px 600px at 50% -10%, #16203400 0%, transparent 60%), var(--bg);
+    margin:0;
+    background:
+      radial-gradient(900px 420px at 15% -5%, #16233d55 0%, transparent 60%),
+      radial-gradient(700px 380px at 90% 0%, #221b3d44 0%, transparent 55%),
+      var(--bg);
     color:var(--fg); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     line-height:1.6; -webkit-font-smoothing:antialiased;
   }
   a{color:var(--accent); text-decoration:none}
   a:hover{text-decoration:underline}
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
-  /* hero */
-  header{padding:72px 0 28px; text-align:center}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px}
+
+  /* ============ HERO (horizontal, desktop-first) ============ */
+  header{padding:64px 0 36px}
+  .hero{display:flex; align-items:center; gap:40px}
   .avatar{
-    width:148px; height:148px; border-radius:50%; object-fit:cover;
-    border:3px solid var(--line); box-shadow:0 10px 40px #0008, 0 0 0 6px #6ea8fe14;
+    width:190px; height:190px; border-radius:24px; object-fit:cover; flex:0 0 auto;
+    border:1px solid var(--line); box-shadow:0 18px 50px #0009, 0 0 0 8px #6ea8fe10;
   }
-  h1{font-size:2rem; margin:18px 0 4px; letter-spacing:-.02em; font-weight:800}
-  .role{color:var(--accent); font-weight:600; margin:0}
-  .tagline{color:var(--muted); max-width:620px; margin:12px auto 0}
-  .links{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:22px 0 4px}
+  .hero-info h1{font-size:2.5rem; margin:0 0 6px; letter-spacing:-.03em; font-weight:800; line-height:1.15}
+  .role{color:var(--accent); font-weight:600; margin:0 0 10px; font-size:1.05rem}
+  .tagline{color:var(--muted); max-width:640px; margin:0 0 18px; font-size:1.02rem}
+  .links{display:flex; flex-wrap:wrap; gap:10px}
   .btn{
-    display:inline-flex; align-items:center; gap:7px; padding:8px 14px; border-radius:999px;
+    display:inline-flex; align-items:center; gap:7px; padding:8px 15px; border-radius:999px;
     background:var(--card); border:1px solid var(--line); color:var(--fg); font-size:.9rem; font-weight:500;
     transition:.18s;
   }
   .btn:hover{border-color:var(--accent); text-decoration:none; transform:translateY(-1px); color:#fff}
   .btn svg{width:16px;height:16px;fill:currentColor;opacity:.9}
-  /* sections */
-  section{padding:26px 0; border-top:1px solid var(--line)}
-  h2{font-size:.82rem; text-transform:uppercase; letter-spacing:.14em; color:var(--muted); font-weight:700; margin:0 0 16px}
-  /* publication card */
+  .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#0b0f17; border:none; font-weight:700}
+  .btn.primary:hover{color:#0b0f17; box-shadow:0 8px 24px #6ea8fe44}
+
+  /* ============ ABOUT (full-width, right under hero) ============ */
+  .about{
+    margin:8px 0 34px; padding:20px 24px; border-radius:16px;
+    background:var(--card2); border:1px solid var(--line);
+    color:#c7d2e0; font-size:1.02rem;
+  }
+  .about strong{color:var(--fg)}
+
+  /* ============ MAIN GRID: content + sidebar ============ */
+  .main{display:grid; grid-template-columns:1fr 320px; gap:34px; align-items:start}
+  h2{font-size:.8rem; text-transform:uppercase; letter-spacing:.15em; color:var(--muted); font-weight:700; margin:0 0 14px}
+  section{margin-bottom:36px}
+
   .pub{
-    background:linear-gradient(180deg,var(--card),#0f1622); border:1px solid var(--line);
-    border-radius:16px; padding:22px 22px; position:relative; overflow:hidden;
+    background:linear-gradient(180deg,var(--card),var(--card2)); border:1px solid var(--line);
+    border-radius:16px; padding:22px 24px; position:relative; overflow:hidden;
   }
   .pub::before{content:""; position:absolute; inset:0 auto 0 0; width:3px;
     background:linear-gradient(180deg,var(--accent),var(--accent2))}
-  .pub h3{margin:0 0 6px; font-size:1.18rem; letter-spacing:-.01em; font-family:'Newsreader',Georgia,serif; font-weight:600}
+  .pub h3{margin:0 0 6px; font-size:1.25rem; letter-spacing:-.01em; font-family:'Newsreader',Georgia,serif; font-weight:600}
   .venue{color:var(--muted); font-size:.9rem; margin:0 0 12px}
   .venue .id{color:var(--accent)}
   .abstract{color:#c7d2e0; font-size:.96rem; margin:0 0 16px}
   .pub-links{display:flex; flex-wrap:wrap; gap:8px}
-  .tag{display:inline-block; padding:3px 10px; border-radius:999px; background:var(--chip);
-    border:1px solid var(--line); color:var(--muted); font-size:.82rem; margin:4px 6px 0 0}
+
+  .tag{display:inline-block; padding:4px 11px; border-radius:999px; background:var(--chip);
+    border:1px solid var(--line); color:var(--muted); font-size:.83rem; margin:0 6px 8px 0}
   .tag.res{color:#bcd0ff}
-  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:26px}
-  @media(max-width:640px){.grid2{grid-template-columns:1fr; gap:8px}}
-  .lead{color:#c7d2e0}
-  .exp h3{margin:0 0 4px; font-size:1.1rem; font-weight:700}
-  .exp .venue{margin:0 0 12px}
-  .contact-form{display:flex; flex-direction:column; gap:12px; max-width:540px; margin-top:6px}
-  .row2{display:flex; gap:12px}
-  .row2>*{flex:1}
-  @media(max-width:520px){.row2{flex-direction:column}}
+
+  .side{position:sticky; top:24px}
+  .side .card{background:var(--card2); border:1px solid var(--line); border-radius:16px; padding:18px 20px; margin-bottom:22px}
+
+  /* ============ CONTACT ============ */
+  .contact{background:var(--card2); border:1px solid var(--line); border-radius:16px; padding:26px 28px}
+  .contact .lead{color:#c7d2e0; margin:0 0 18px}
+  .contact-form{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .contact-form .full{grid-column:1/-1}
   .contact-form input,.contact-form textarea{
     background:var(--card); border:1px solid var(--line); color:var(--fg);
-    border-radius:10px; padding:11px 13px; font:inherit; font-size:.95rem; width:100%;
+    border-radius:10px; padding:12px 14px; font:inherit; font-size:.95rem; width:100%;
   }
   .contact-form input::placeholder,.contact-form textarea::placeholder{color:#67748a}
   .contact-form input:focus,.contact-form textarea:focus{outline:none; border-color:var(--accent)}
   .contact-form textarea{resize:vertical}
   .contact-form button{
-    align-self:flex-start; background:linear-gradient(90deg,var(--accent),var(--accent2));
-    color:#0b0f17; border:none; border-radius:999px; padding:11px 24px; font-weight:700;
+    grid-column:1/-1; justify-self:start;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    color:#0b0f17; border:none; border-radius:999px; padding:12px 28px; font-weight:700;
     font-size:.95rem; cursor:pointer; transition:.18s;
   }
   .contact-form button:hover{transform:translateY(-1px); box-shadow:0 8px 24px #6ea8fe44}
-  .note{color:var(--muted); font-size:.82rem; margin-top:10px}
-  footer{padding:40px 0 60px; text-align:center; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line)}
+  .note{color:var(--muted); font-size:.82rem; margin:12px 0 0}
+
+  footer{padding:36px 0 56px; text-align:center; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); margin-top:44px}
   .dot{opacity:.5; margin:0 8px}
+
+  /* ============ RESPONSIVE ============ */
+  @media(max-width:900px){
+    .main{grid-template-columns:1fr}
+    .side{position:static}
+    .hero{flex-direction:column; text-align:center; gap:22px}
+    .hero-info h1{font-size:2rem}
+    .tagline{margin-left:auto; margin-right:auto}
+    .links{justify-content:center}
+    .avatar{width:150px; height:150px; border-radius:50%}
+    .contact-form{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <img class="avatar" src="assets/profile.jpg" alt="Ravi Satya Durga Prasad Yenugula" />
-    <h1>Ravi Satya Durga Prasad Yenugula</h1>
-    <p class="role">Independent Researcher &middot; Machine Learning</p>
-    <p class="tagline">I study what actually transfers between neural-network sizes — model compression,
-      size conversion, and token-efficient pretraining of transformers.</p>
-    <nav class="links">
-      <a class="btn" href="https://arxiv.org/abs/2608.02829" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M3 5h18v2H3zm0 6h18v2H3zm0 6h12v2H3z"/></svg>arXiv</a>
-      <a class="btn" href="https://github.com/rsdpyenugula" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 8.8 21.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .8.1-.6.3-1.1.6-1.3-2.2-.3-4.5-1.1-4.5-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.6s.8-.3 2.7 1a9.3 9.3 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.5 5 .3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>GitHub</a>
-      <a class="btn" href="https://huggingface.co/YenugulaAIML" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM8.5 10a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zm7 0a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM7.8 14.6c.3-.2.7-.1.9.2a3.9 3.9 0 0 0 6.6 0c.2-.3.6-.4.9-.2.3.2.4.6.2.9a5.1 5.1 0 0 1-8.9 0c-.2-.3-.1-.7.3-.9z"/></svg>Hugging&nbsp;Face</a>
-      <a class="btn" href="https://scholar.google.com/citations?user=zLDT0NUAAAAJ" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2V17c0 1.7 3.1 3 7 3s7-1.3 7-3v-3.8l-7 3.8-7-3.8z"/></svg>Scholar</a>
-      <a class="btn" href="https://www.linkedin.com/in/ravisatyadurgaprasad-yenugula-33494155/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3V9zm6 0h3.8v1.65h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.85V21H9V9z"/></svg>LinkedIn</a>
-    </nav>
+    <div class="hero">
+      <img class="avatar" src="assets/profile.jpg" alt="Ravi Satya Durga Prasad Yenugula" />
+      <div class="hero-info">
+        <h1>Ravi Satya Durga Prasad Yenugula</h1>
+        <p class="role">AI Researcher · Data &amp; AIML Engineer</p>
+        <p class="tagline">A rare dual profile: I publish independent research on what transfers between
+          neural-network sizes — model compression, size conversion, token-efficient pretraining — and I
+          engineer the production data &amp; ML platforms (Snowflake, Databricks, real-time + batch) that
+          large-scale AI runs on.</p>
+        <nav class="links">
+          <a class="btn primary" href="#contact">Contact me</a>
+          <a class="btn" href="https://arxiv.org/abs/2608.02829" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M3 5h18v2H3zm0 6h18v2H3zm0 6h12v2H3z"/></svg>arXiv</a>
+          <a class="btn" href="https://github.com/rsdpyenugula" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 8.8 21.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .8.1-.6.3-1.1.6-1.3-2.2-.3-4.5-1.1-4.5-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.6s.8-.3 2.7 1a9.3 9.3 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.5 5 .3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>GitHub</a>
+          <a class="btn" href="https://huggingface.co/YenugulaAIML" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM8.5 10a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zm7 0a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM7.8 14.6c.3-.2.7-.1.9.2a3.9 3.9 0 0 0 6.6 0c.2-.3.6-.4.9-.2.3.2.4.6.2.9a5.1 5.1 0 0 1-8.9 0c-.2-.3-.1-.7.3-.9z"/></svg>Hugging&nbsp;Face</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=zLDT0NUAAAAJ" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2V17c0 1.7 3.1 3 7 3s7-1.3 7-3v-3.8l-7 3.8-7-3.8z"/></svg>Scholar</a>
+          <a class="btn" href="https://www.linkedin.com/in/ravisatyadurgaprasad-yenugula-33494155/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3V9zm6 0h3.8v1.65h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.85V21H9V9z"/></svg>LinkedIn</a>
+        </nav>
+      </div>
+    </div>
+
+    <p class="about"><strong>About.</strong> I work at an intersection few people occupy: 10+ years engineering
+      production data &amp; ML platforms, combined with independent, published AI research. The engineering side
+      builds real-time and batch systems on Snowflake and Databricks; the research side asks precise, controlled
+      questions about neural networks — most recently, what genuinely carries over when you shrink a pretrained
+      transformer, and how to recover a small model cheaply without training it from zero. I care about honest
+      experiments, reproducible artifacts, and results that hold up to scrutiny.</p>
   </header>
 
-  <section id="publications">
-    <h2>Selected Publication</h2>
-    <article class="pub">
-      <h3>Wiring Beats Blending: What Transfers Between Transformer Sizes — and What Doesn't</h3>
-      <p class="venue">Ravi Satya Durga Prasad Yenugula &middot; 2026 &middot;
-        <span class="id">arXiv:2608.02829</span> [cs.LG, cs.CL, cs.AI]</p>
-      <p class="abstract">Can a pretrained large model be converted into a smaller sibling instead of
-        training every size from scratch? I characterize the 1.4B→410M conversion in the Pythia family
-        end to end: representations align across sizes but parameters do not, and conversion value lives
-        in <em>initialization</em>. Decomposing that init into two independent levers — least-squares
-        <em>compensation</em> and variance-preserving <em>rescale</em> — yields a token-efficient method
-        that, at matched budget, also beats structured pruning with distillation, the standard pipeline,
-        and improves further when combined with it.</p>
-      <div class="pub-links">
-        <a class="btn" href="https://arxiv.org/abs/2608.02829" target="_blank" rel="noopener">Abstract</a>
-        <a class="btn" href="https://arxiv.org/pdf/2608.02829" target="_blank" rel="noopener">PDF</a>
-        <a class="btn" href="https://github.com/rsdpyenugula/ScaleOp" target="_blank" rel="noopener">Code</a>
-        <a class="btn" href="https://huggingface.co/YenugulaAIML/scaleop-pythia-conversions" target="_blank" rel="noopener">Checkpoints</a>
-      </div>
-    </article>
-  </section>
+  <div class="main">
+    <div class="content">
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <article class="pub exp">
-      <h3>Data Engineer</h3>
-      <p class="venue">10+ years &middot; real-time &amp; batch data platforms for analytics &amp; ML</p>
-      <p class="abstract">I design and operate production data platforms across real-time and batch
-        workloads, typically on a Lambda architecture. With deep Snowflake and Databricks expertise, I
-        build streaming and batch ETL/ELT, workflow orchestration, dimensional modeling, and exploratory
-        data analysis (EDA) — turning messy, multi-source data into trustworthy, well-tested datasets
-        teams build on, with monitoring, lineage, and cost in mind.</p>
-      <div>
-        <span class="tag">Snowflake / Databricks (expert)</span>
-        <span class="tag">Apache Spark</span><span class="tag">Lambda architecture</span>
-        <span class="tag">Real-time streaming</span><span class="tag">Batch ETL/ELT</span>
-        <span class="tag">Apache Airflow</span><span class="tag">AWS</span>
-        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">EDA</span>
-      </div>
-    </article>
-  </section>
+      <section id="publications">
+        <h2>Selected Publication</h2>
+        <article class="pub">
+          <h3>Wiring Beats Blending: What Transfers Between Transformer Sizes — and What Doesn't</h3>
+          <p class="venue">Ravi Satya Durga Prasad Yenugula &middot; 2026 &middot;
+            <span class="id">arXiv:2608.02829</span> [cs.LG, cs.CL, cs.AI]</p>
+          <p class="abstract">Can a pretrained large model be converted into a smaller sibling instead of
+            training every size from scratch? I characterize the 1.4B→410M conversion in the Pythia family
+            end to end: representations align across sizes but parameters do not, and conversion value lives
+            in <em>initialization</em>. Decomposing that init into two independent levers — least-squares
+            <em>compensation</em> and variance-preserving <em>rescale</em> — yields a token-efficient method
+            that, at matched budget, also beats structured pruning with distillation, the standard pipeline,
+            and improves further when combined with it.</p>
+          <div class="pub-links">
+            <a class="btn" href="https://arxiv.org/abs/2608.02829" target="_blank" rel="noopener">Abstract</a>
+            <a class="btn" href="https://arxiv.org/pdf/2608.02829" target="_blank" rel="noopener">PDF</a>
+            <a class="btn" href="https://github.com/rsdpyenugula/ScaleOp" target="_blank" rel="noopener">Code</a>
+            <a class="btn" href="https://huggingface.co/YenugulaAIML/scaleop-pythia-conversions" target="_blank" rel="noopener">Checkpoints</a>
+          </div>
+        </article>
+      </section>
 
-  <section class="grid2">
-    <div>
-      <h2>Research Interests</h2>
-      <span class="tag res">Model compression</span><span class="tag res">Size conversion</span>
-      <span class="tag res">Transformers</span><span class="tag res">Efficient pretraining</span>
-      <span class="tag res">Knowledge distillation</span><span class="tag res">Representation analysis</span>
+      <section id="experience">
+        <h2>Experience</h2>
+        <article class="pub exp">
+          <h3>Data Engineer</h3>
+          <p class="venue">10+ years &middot; real-time &amp; batch data platforms for analytics &amp; ML</p>
+          <p class="abstract">I design and operate production data platforms across real-time and batch
+            workloads, working across modern data architectures (Lambda, Medallion, and beyond). With deep
+            Snowflake and Databricks expertise, I build streaming and batch ETL/ELT, workflow orchestration,
+            dimensional modeling, and exploratory data analysis (EDA) — turning messy, multi-source data into
+            trustworthy, well-tested datasets teams build on, with monitoring, lineage, and cost in mind.</p>
+          <div>
+            <span class="tag">Snowflake / Databricks (expert)</span>
+            <span class="tag">Apache Spark</span><span class="tag">Lambda &amp; Medallion architectures</span>
+            <span class="tag">Real-time streaming</span><span class="tag">Batch ETL/ELT</span>
+            <span class="tag">Apache Airflow</span><span class="tag">AWS</span>
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">EDA</span>
+          </div>
+        </article>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact">
+          <p class="lead">Research collaboration, a question about the work, or an opportunity? Send a note
+            and I'll get back to you.</p>
+          <form class="contact-form" action="https://formspree.io/f/meajgjja" method="POST">
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Your email" required />
+            <input class="full" type="tel" name="phone" placeholder="Phone (optional)" />
+            <textarea class="full" name="reason" rows="4" placeholder="Reason for reaching out" required></textarea>
+            <input type="hidden" name="_subject" value="New contact from your portfolio site" />
+            <!-- honeypot: hidden from humans; bots that fill it get silently dropped by Formspree -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+                   style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0" />
+            <button type="submit">Send request</button>
+          </form>
+          <p class="note">Submissions are delivered straight to my inbox.</p>
+        </div>
+      </section>
+
     </div>
-    <div>
-      <h2>Skills</h2>
-      <span class="tag">Machine Learning / AIML</span><span class="tag">Data Engineering</span>
-      <span class="tag">Data Science</span><span class="tag">PyTorch</span>
-      <span class="tag">Distributed training</span><span class="tag">Python</span>
-    </div>
-  </section>
 
-  <section id="about">
-    <h2>About</h2>
-    <p class="lead">I'm an independent machine-learning researcher. My work asks precise, controlled
-      questions about neural networks — most recently, what genuinely carries over when you shrink a
-      pretrained transformer, and how to recover a small model cheaply without training it from zero.
-      I care about honest experiments, reproducible artifacts, and results that hold up to scrutiny.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p class="lead">Research collaboration, a question about the work, or an opportunity? Send a note
-      and I'll get back to you.</p>
-    <form class="contact-form" action="https://formspree.io/f/meajgjja" method="POST">
-      <div class="row2">
-        <input type="text" name="name" placeholder="Your name" required />
-        <input type="email" name="email" placeholder="Your email" required />
+    <aside class="side">
+      <div class="card">
+        <h2>Research Interests</h2>
+        <span class="tag res">Model compression</span><span class="tag res">Size conversion</span>
+        <span class="tag res">Transformers</span><span class="tag res">Efficient pretraining</span>
+        <span class="tag res">Knowledge distillation</span><span class="tag res">Representation analysis</span>
       </div>
-      <input type="tel" name="phone" placeholder="Phone (optional)" />
-      <textarea name="reason" rows="4" placeholder="Reason for reaching out" required></textarea>
-      <input type="hidden" name="_subject" value="New contact from your portfolio site" />
-      <!-- honeypot: hidden from humans; bots that fill it get silently dropped by Formspree -->
-      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
-             style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0" />
-      <button type="submit">Send request</button>
-    </form>
-    <p class="note">Submissions are delivered straight to my inbox.</p>
-  </section>
+      <div class="card">
+        <h2>Skills</h2>
+        <span class="tag">Data Engineering</span><span class="tag">Machine Learning / AIML</span>
+        <span class="tag">Data Science</span><span class="tag">PyTorch</span>
+        <span class="tag">Distributed training</span><span class="tag">Python</span>
+      </div>
+      <div class="card">
+        <h2>Artifacts</h2>
+        <p style="margin:0;font-size:.92rem;color:var(--muted)">
+          <a href="https://github.com/rsdpyenugula/ScaleOp" target="_blank" rel="noopener">ScaleOp</a> — code for the paper<br/>
+          <a href="https://huggingface.co/YenugulaAIML/scaleop-pythia-conversions" target="_blank" rel="noopener">Checkpoints</a> — 17 released models
+        </p>
+      </div>
+    </aside>
+  </div>
 
   <footer>
     Ravi Satya Durga Prasad Yenugula
